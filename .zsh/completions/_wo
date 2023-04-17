@@ -1,0 +1,3 @@
+#compdef wo
+
+_arguments "1:work projects:_files -/ -W $WORKDIR"
