@@ -16,7 +16,8 @@ export ZSH="/home/ricardo/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -76,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump zsh-syntax-highlighting colorize zsh-vim-mode screen docker docker-compose)
+plugins=(git autojump colorize vi-mode screen docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -123,7 +124,7 @@ export DIRSTACKSIZE=8
 setopt autopushd pushdminus pushdsilent pushdtohome pushdignoredups
 
 #fix invisible comment
-ZSH_HIGHLIGHT_STYLES[comment]='fg=gray,bold'
+#ZSH_HIGHLIGHT_STYLES[comment]='fg=gray,bold'
 
 #my vars
 export DOCKER_CLIENT_TIMEOUT=200
@@ -156,3 +157,5 @@ zstyle ':completion:*' file-sort modification
 
 #FZF
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
