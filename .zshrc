@@ -77,7 +77,7 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump colorize vi-mode screen docker docker-compose systemd)
+plugins=(git autojump colorize screen docker docker-compose systemd)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -159,3 +159,4 @@ zstyle ':completion:*' file-sort modification
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/.zsh/zsh-vim-mode/zsh-vim-mode.plugin.zsh
