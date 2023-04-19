@@ -1,0 +1,8 @@
+# copy to /etc/systemd/system/evremap.service
+[Service]
+WorkingDirectory=/
+ExecStart=/usr/bin/evremap remap /home/ricardo/.config/evremap/capslock-arrows.toml
+Restart=always
+
+[Install]
+WantedBy=user@1000.service
