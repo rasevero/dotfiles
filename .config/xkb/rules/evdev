@@ -1,0 +1,4 @@
+! option = symbols
+  custom:caps_mod3 = +custom(caps_mod3)
+  custom:hjkl_mod3_arrow = +custom(hjkl_mod3_arrow)
+! include %S/evdev

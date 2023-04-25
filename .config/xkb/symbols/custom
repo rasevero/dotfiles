@@ -1,0 +1,27 @@
+partial modifier_keys
+xkb_symbols "caps_mod3" {
+  replace key <CAPS> {
+    [ VoidSymbol, Escape ]
+  };
+  modifier_map Mod3 { <CAPS> };
+};
+
+partial alphanumeric_keys
+xkb_symbols "hjkl_mod3_arrow" {
+    key <AC06> {
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [               h,               H,         Left,         Hstroke ]
+    };
+    key <AC07> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               j,               J,       Down,       dead_horn ]
+    };
+    key <AC08> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               k,               K, Up,       ampersand ]
+    };
+    key <AC09> {
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [               l,               L, Right,         Lstroke ]
+    };
+};
