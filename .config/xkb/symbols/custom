@@ -9,19 +9,19 @@ xkb_symbols "caps_mod3" {
 partial alphanumeric_keys
 xkb_symbols "hjkl_mod3_arrow" {
     key <AC06> {
-        type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               h,               H,         Left,         Hstroke ]
+        type= "EIGHT_LEVEL",
+        symbols[Group1]= [               h,               H,         hstroke, Hstroke, Left, VoidSymbol, Home, VoidSymbol ]
     };
     key <AC07> {
-        type= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               j,               J,       Down,       dead_horn ]
+        type= "EIGHT_LEVEL",
+        symbols[Group1]= [               j,               J,       dead_hook, dead_horn, Down, VoidSymbol, Next, VoidSymbol ]
     };
     key <AC08> {
-        type= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               k,               K, Up,       ampersand ]
+        type= "EIGHT_LEVEL",
+        symbols[Group1]= [               k,               K, kra, ampersand, Up, VoidSymbol, Prior, VoidSymbol ]
     };
     key <AC09> {
-        type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               l,               L, Right,         Lstroke ]
+        type= "EIGHT_LEVEL",
+        symbols[Group1]= [               l,               L, lstroke, Lstroke, Right, VoidSymbol, End, VoidSymbol ]
     };
 };
