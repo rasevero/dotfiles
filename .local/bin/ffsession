@@ -2,5 +2,3 @@
 
 NAME=$1
 firefox -P $NAME --no-remote &
-xdotool search --sync --onlyvisible --all --classname Navigator \
-set_window --classname "$NAME"
