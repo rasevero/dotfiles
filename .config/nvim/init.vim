@@ -232,7 +232,7 @@ EOF
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the four listed parsers should always be installed)
-  ensure_installed = { "javascript", "vue", "terraform", "php", "lua", "vim", "help" },
+  ensure_installed = { "javascript", "vue", "terraform", "php", "lua", "vim" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = true,
@@ -461,13 +461,3 @@ require('tabnine').setup({
   exclude_filetypes = {"TelescopePrompt"}
 })
 EOF
-
-:nnoremap <leader>c :set cursorcolumn! cursorline!<CR>
-augroup highlight_cursor_on_focus
-  autocmd!
-  autocmd FocusGained * set cursorline cursorcolumn
-  autocmd WinEnter * set cursorline cursorcolumn
-  autocmd CursorHold * set nocursorline nocursorcolumn
-  autocmd InsertEnter * set nocursorline nocursorcolumn
-  autocmd WinLeave * set nocursorline nocursorcolumn
-augroup END
