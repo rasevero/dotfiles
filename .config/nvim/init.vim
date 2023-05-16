@@ -449,15 +449,3 @@ let g:ale_fix_on_save = 1
 
 "clear search highlight until next search with C-L
 nnoremap <nowait><silent> <C-L> :noh<CR>
-
-"tabnine
-lua << EOF
-require('tabnine').setup({
-  disable_auto_comment=true,
-  accept_keymap="<C-k>",
-  dismiss_keymap = "<C-]>",
-  debounce_ms = 800,
-  suggestion_color = {gui = "#808080", cterm = 244},
-  exclude_filetypes = {"TelescopePrompt"}
-})
-EOF
