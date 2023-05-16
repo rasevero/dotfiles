@@ -7,7 +7,7 @@
     "margin": "0 5px",
     // Choose the order of the modules
     "modules-left": ["wlr/workspaces", "cpu", "memory", "temperature", "battery"],
-    "modules-center": ["hyprland/window"],
+    "modules-center": ["hyprland/submap","hyprland/window"],
     "modules-right": ["backlight", "network", "pulseaudio", "tray", "clock"],
     // Modules configuration
      "wlr/workspaces": {
@@ -42,6 +42,9 @@
     "hyprland/window": {
         "max-length": 50,
         "separate-outputs": true
+    },
+    "hyprland/submap": {
+        "format": "Mode: {}"
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",

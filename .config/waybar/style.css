@@ -28,7 +28,7 @@
   font-size: 0.7em;
   font-weight: 300;
   color: @base04;
-  background: @base01;
+  background: alpha(@base01, 0.6);
   border-radius: 4px;
 }
 
@@ -77,6 +77,16 @@
   margin-bottom: 2px;
   padding: 0 6px;
   background-color: @base02;
+  border-radius: 4px;
+  min-width: 20px;
+  min-height: 0;
+}
+
+#window, #submap {
+  margin: 4px 2px;
+  margin-bottom: 2px;
+  padding: 0 6px;
+  background-color: alpha(@base02, 0.6);
   border-radius: 4px;
   min-width: 20px;
   min-height: 0;
