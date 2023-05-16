@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Firefox Email Session
+GenericName=Custom Email Session
+GenericName[en]=Firefox with email session
+GenericName[pt_BR]=Sessão Firefox com email
+Comment=Firefox with email session
+Exec=/home/ricardo/.local/bin/ffsession email
+Terminal=false
+StartupWMClass=ffsession-email
+Categories=Network;WebBrowser;
+Type=Application

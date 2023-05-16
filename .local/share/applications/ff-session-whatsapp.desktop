@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Firefox Whatsapp Session
+GenericName=Custom Whatsapp Session
+GenericName[en]=Firefox with whatsapp session
+GenericName[pt_BR]=Sessão Firefox com whatsapp
+Comment=Firefox with whatsapp session
+Exec=/home/ricardo/.local/bin/ffsession whatsapp
+Terminal=false
+StartupWMClass=ffsession-whatsapp
+Categories=Network;WebBrowser;
+Type=Application
