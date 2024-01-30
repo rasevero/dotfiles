@@ -158,5 +158,8 @@ zstyle ':completion:*' file-sort modification
 #FZF
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 
-#source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-#source ~/.zsh/zsh-vim-mode/zsh-vim-mode.plugin.zsh
+source ~/.zsh/nnn/quitcd.bash_sh_zsh
+
+#must be last
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/.zsh/zsh-vim-mode/zsh-vim-mode.plugin.zsh
