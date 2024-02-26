@@ -3,7 +3,12 @@
 #install ohmyzsh
 [[ ! -f ~/.oh-my-zsh ]] || git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 
+git clone https://github.com/softmoth/zsh-vim-mode.git \
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-vim-mode
+
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git \
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+
 paru -S ttf-meslo-nerd-font-powerlevel10k
 paru -S zsh-theme-powerlevel10k-git
 paru -S autojump-rs
-paru -S zsh-fast-syntax-highlighting
