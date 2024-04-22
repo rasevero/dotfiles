@@ -6,19 +6,20 @@
     "spacing": 4, // Gaps between modules (4px)
     "margin": "0 5px",
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces", "cpu", "memory", "temperature", "battery"],
-    "modules-center": ["hyprland/submap","hyprland/window"],
+    //"modules-left": ["hyprland/workspaces", "cpu", "memory", "temperature", "battery"],
+    //"modules-center": ["hyprland/submap","hyprland/window"],
+    "modules-left": ["river/tags", "cpu", "memory", "temperature", "battery"],
     "modules-right": ["backlight", "network", "pulseaudio", "tray", "clock"],
     // Modules configuration
-     "wlr/workspaces": {
+     "hyprland/workspaces": {
          "disable-scroll": true,
          "on-click": "activate",
          "sort-by-number": true,
          // "all-outputs": false,
          // "format": "{name}: {icon}",
          "format": "{name}",
-         "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
-         "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null",
+         //"on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
+         //"on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null",
          "format-icons": {
              "1": "",
              "2": "",
@@ -119,7 +120,7 @@
         "bat": "BAT2"
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "interface": "wlo1", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) <span size='140%'></span>",
         "format-ethernet": "{ipaddr}/{cidr} <span size='120%'>󰈁</span>",
         "tooltip-format": "{ifname} via {gwaddr} <span size='120%'>󰈁</span>",

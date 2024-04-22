@@ -14,6 +14,10 @@
 @define-color base0D #7cafc2;
 @define-color base0E #ba8baf;
 @define-color base0F #a16946;
+@define-color cyan #2aa198;
+@define-color red #dc322f;
+@define-color magenta #d33682;
+@define-color green #859900;
 
 * {
   transition: none;
@@ -114,4 +118,31 @@
   font-size: 1em;
   font-weight: 400;
   font-family: sans-serif;
+}
+
+#tags button.occupied {
+  margin: 4px 2px;
+  margin-bottom: 2px;
+  color: @base0C;
+  background-color: @base02;
+  border-radius: 4px;
+  min-height: 0;
+}
+
+#tags button.focused {
+  margin: 4px 2px;
+  margin-bottom: 2px;
+  color: @green;
+  background-color: @base02;
+  border-radius: 4px;
+  min-height: 0;
+}
+
+#tags button.urgent {
+  margin: 4px 2px;
+  margin-bottom: 2px;
+  color: @red;
+  background-color: @base02;
+  border-radius: 4px;
+  min-height: 0;
 }
