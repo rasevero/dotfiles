@@ -77,7 +77,7 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize screen docker docker-compose systemd zsh-vim-mode zoxide fast-syntax-highlighting)
+plugins=(git autojump colorize screen docker docker-compose systemd zsh-vim-mode zoxide fast-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -139,6 +139,8 @@ export fpath=(~/.zsh/completions $fpath)
 
 autoload -U compinit && compinit
 
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
+
 #awise vars
 [[ ! -f ~/.zsh/localvars ]] || source ~/.zsh/localvars
 
@@ -160,6 +162,10 @@ export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 
 source ~/.zsh/nnn/quitcd.bash_sh_zsh
 
-#must be last
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source ~/.zsh/zsh-vim-mode/zsh-vim-mode.plugin.zsh
+eval "$(zoxide init zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/ricardo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ricardo/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/ricardo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ricardo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
