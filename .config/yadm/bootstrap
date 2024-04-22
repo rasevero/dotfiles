@@ -9,6 +9,8 @@ git clone https://github.com/softmoth/zsh-vim-mode.git \
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git \
   ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
 
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 paru -S ttf-meslo-nerd-font-powerlevel10k
 paru -S zsh-theme-powerlevel10k-git
-paru -S autojump-rs
+sudo pacman -S zoxide
