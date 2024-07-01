@@ -31,6 +31,7 @@ riverctl map normal Super J focus-view down
 riverctl map normal Super K focus-view up
 riverctl map normal Super H focus-view left
 riverctl map normal Super L focus-view right
+riverctl map normal Super Tab focus-view next
 
 # Super+Shift+J and Super+Shift+K to swap the focused view with the next/previous
 # view in the layout stack
@@ -208,6 +209,9 @@ wideriver \
    > "/tmp/wideriver.${XDG_VTNR}.${USER}.log" 2>&1 &
 
 riverctl focus-follows-cursor normal
+
+# Wideriver layout toggle
+riverctl map normal Super T send-layout-cmd wideriver "--layout-toggle"
 
 waybar &
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
