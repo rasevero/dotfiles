@@ -47,3 +47,5 @@ alias cpusetpowersave='echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cp
 alias nnn='n -d -Tt'
 alias ex='n -d -Tt'
 alias mdcat='python -m rich.markdown'
+alias hidewaybar='killall -SIGUSR1 waybar'
+alias showwaybar='killall -SIGUSR2 waybar'

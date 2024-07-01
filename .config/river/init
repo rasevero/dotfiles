@@ -135,6 +135,11 @@ riverctl map normal Super F11 enter-mode passthrough
 # Super+F11 to return to normal mode
 riverctl map passthrough Super F11 enter-mode normal
 
+# Super+O hide waybar
+riverctl map normal Super O spawn 'killall -SIGUSR1 waybar'
+# Super+Shift+O show waybar
+riverctl map normal Super+Shift O spawn 'killall -SIGUSR2 waybar'
+
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier
 for mode in normal locked
@@ -215,7 +220,11 @@ riverctl focus-follows-cursor normal
 # Wideriver layout toggle
 riverctl map normal Super T send-layout-cmd wideriver "--layout-toggle"
 
+# set display transform
+riverctl map normal Super P spawn 'wlr-randr --output HDMI-A-1 --transform 90 --pos 1920,-370'
+
 waybar &
+riverctl map normal Super T send-layout-cmd wideriver "--layout-toggle"
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 dunst &
 swaybg -i Imagens/wallpapers/nature.jpg &
