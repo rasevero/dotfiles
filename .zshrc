@@ -140,6 +140,7 @@ export fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
+export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
 
 #awise vars
 [[ ! -f ~/.zsh/localvars ]] || source ~/.zsh/localvars
