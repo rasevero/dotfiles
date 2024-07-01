@@ -1,0 +1,7 @@
+import = ["/home/ricardo/.config/alacritty/themes/themes/solarized_dark.toml"]
+
+[font]
+size = 10.0
+
+[font.normal]
+family = "MesloLGS NF"
