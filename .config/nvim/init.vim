@@ -347,11 +347,12 @@ require'lspconfig'.phpactor.setup{
 EOF
 
 "lsp-zero config
+set completeopt=menu,menuone,noselect
 lua << EOF
 local lsp = require('lsp-zero').preset({
   name = 'minimal',
   set_lsp_keymaps = true,
-  manage_nvim_cmp = true,
+  manage_nvim_cmp = false,
   suggest_lsp_servers = false,
 })
 
@@ -361,6 +362,42 @@ lsp.nvim_workspace()
 lsp.skip_server_setup({'rust-analyzer'})
 
 lsp.setup()
+
+local cmp = require('cmp')
+cmp.setup({
+    sources = {
+        {name = 'nvim_lsp'},
+        {name = 'buffer'},
+        {name = 'path'},
+    },
+    preselect=cmp.PreselectMode.None,
+    mapping = {
+        ['<C-j>'] = cmp.mapping.confirm({select = false}),
+        ['<CR>'] = cmp.mapping.confirm({select = false}),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<Up>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
+        ['<Down>'] = cmp.mapping.select_next_item({behavior = 'select'}),
+        ['<C-p>'] = cmp.mapping(function()
+        if cmp.visible() then
+            cmp.select_prev_item({behavior = 'insert'})
+        else
+            cmp.complete()
+        end
+        end),
+        ['<C-n>'] = cmp.mapping(function()
+            if cmp.visible() then
+                cmp.select_next_item({behavior = 'insert'})
+            else
+                cmp.complete()
+            end
+        end),
+    },
+    snippet = {
+        expand = function(args)
+        require('luasnip').lsp_expand(args.body)
+        end,
+        },
+    })
 EOF
 
 " Relative or absolute number lines
@@ -450,7 +487,7 @@ let g:ale_fix_on_save = 1
 "let g:ale_lint_on_enter = 0
 
 "clear search highlight until next search with C-L
-nnoremap <nowait><silent> <C-L> :noh<CR>
+nnoremap <nowait><silent> <C-H> :noh<CR>
 
 "copilot remaps
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
@@ -486,4 +523,5 @@ nnoremap <leader>cce <cmd>CopilotChatExplain<cr>
 nnoremap <leader>cct <cmd>CopilotChatTests<cr>
 xnoremap <leader>ccv :CopilotChatVisual<cr>
 xnoremap <leader>ccx :CopilotChatInPlace<cr>
-
+nnoremap <leader>cpo <cmd>CopilotChatOpen<cr>
+nnoremap <leader>cpc <cmd>CopilotChatClose<cr>
