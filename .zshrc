@@ -161,7 +161,7 @@ zstyle ':completion:*' file-sort modification
 #FZF
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 
-source ~/.zsh/nnn/quitcd.bash_sh_zsh
+#source ~/.zsh/nnn/quitcd.bash_sh_zsh
 
 eval "$(zoxide init zsh)"
 

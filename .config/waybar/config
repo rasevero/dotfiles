@@ -120,7 +120,7 @@
         "bat": "BAT2"
     },
     "network": {
-        "interface": "wlo1", // (Optional) To force the use of this interface
+        "interface": "enp6s0", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) <span size='140%'></span>",
         "format-ethernet": "{ipaddr}/{cidr} <span size='120%'>󰈁</span>",
         "tooltip-format": "{ifname} via {gwaddr} <span size='120%'>󰈁</span>",
