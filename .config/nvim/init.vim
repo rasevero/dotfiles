@@ -156,9 +156,15 @@ nnoremap <silent> <C-C> :!cd /; find /linuxppc/SELF/build/application/{PD2300/,L
 "execute pathogen#infect()
 
 "Solarized
+lua << EOF
+  require('neosolarized').setup({
+    comment_italics = true,
+    background_set = false,
+  })
+EOF
 "set background=dark
 set termguicolors
-"colorscheme solarized8
+colorscheme neosolarized
 
 "Get the 2-space YAML as the default when hit carriage return after the colon
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -271,13 +277,6 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
-EOF
-
-lua << EOF
-  require('neosolarized').setup({
-    comment_italics = true,
-    background_set = false,
-  })
 EOF
 
 lua << EOF
