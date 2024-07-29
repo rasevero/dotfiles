@@ -43,8 +43,8 @@ riverctl map normal Super Period focus-output next
 riverctl map normal Super Comma focus-output previous
 
 # Super+Shift+{Period,Comma} to send the focused view to the next/previous output
-riverctl map normal Super+Shift Period send-to-output next
-riverctl map normal Super+Shift Comma send-to-output previous
+riverctl map normal Super+Shift Period send-to-output -current-tags next
+riverctl map normal Super+Shift Comma send-to-output -current-tags previous
 
 # Super+Return to bump the focused view to the top of the layout stack
 riverctl map normal Super Space zoom
@@ -162,6 +162,8 @@ done
 
 riverctl set-cursor-warp on-focus-change
 
+riverctl default-attach-mode bottom
+
 # Set background and border color
 riverctl background-color 0x002b36
 #default
@@ -217,4 +219,14 @@ waybar &
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 dunst &
 swaybg -i Imagens/wallpapers/nature.jpg &
-wlr-randr --output HDMI-A-1 --transform 90
+wlr-randr --output HDMI-A-1 --transform 90 --pos 1920,-370
+#wlr-randr --output DP-1 --scale 0.81
+#wlr-randr --output HDMI-A-1 --transform 90 --pos 2374,-370
+sleep 0.1
+riverctl focus-output HDMI-A-1
+sleep 0.1
+wideriver "--count -1"
+sleep 0.1
+riverctl focus-output DP-1
+
+ckb-next -b &
