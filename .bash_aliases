@@ -1,4 +1,4 @@
-alias less='less -r'
+alias less='less -R'
 alias dockerc="docker-compose"
 alias dcup="COMPOSE_HTTP_TIMEOUT=1000 docker-compose up"
 alias dcdown="docker-compose down"
