@@ -170,3 +170,13 @@ if [ -f '/home/ricardo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/ricardo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ricardo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+#pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+bindkey -a j vi-down-line-or-history
+bindkey -a k vi-up-line-or-history
+bindkey '^n' vi-down-line-or-history
+bindkey '^p' vi-up-line-or-history
