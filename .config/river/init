@@ -164,6 +164,18 @@ do
     riverctl map $mode None XF86MonBrightnessDown spawn 'light -S 22'
 done
 
+riverctl declare-mode monitor
+riverctl map normal Super M enter-mode monitor
+riverctl map -release monitor Super M spawn 'notify-send "Entered Monitor mode. Options: Super+D, Super+R, Super+F"'
+riverctl map monitor Super F spawn 'wlr-randr --output HDMI-A-1 --mode 1920x1080@60 --scale 1'
+riverctl map -release monitor Super F enter-mode normal
+riverctl map monitor Super D spawn 'wlr-randr --output HDMI-A-1 --pos "-3840,-800"'
+riverctl map -release monitor Super D enter-mode normal
+riverctl map monitor Super R spawn 'wlr-randr --output HDMI-A-1 --preferred --pos "1366,0"'
+riverctl map -release monitor Super R enter-mode normal
+riverctl map monitor Super M enter-mode normal
+riverctl map -release normal Super M spawn 'notify-send "Left Monitor mode"'
+
 riverctl default-attach-mode bottom
 
 riverctl set-cursor-warp on-focus-change
@@ -223,3 +235,6 @@ waybar &
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 dunst &
 swaybg -i Imagens/wallpapers/green-nature-26.jpg &
+
+# set hdmi to the left
+wlr-randr --output HDMI-A-1 --pos '-3840,-800'
