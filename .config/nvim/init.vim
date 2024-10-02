@@ -240,7 +240,7 @@ EOF
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the four listed parsers should always be installed)
-  ensure_installed = { "javascript", "vue", "terraform", "php", "lua", "vim" },
+  ensure_installed = { "javascript", "vue", "terraform", "php", "lua", "vim", "dockerfile" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = true,
@@ -524,3 +524,7 @@ xnoremap <leader>ccv :CopilotChatVisual<cr>
 xnoremap <leader>ccx :CopilotChatInPlace<cr>
 nnoremap <leader>cpo <cmd>CopilotChatOpen<cr>
 nnoremap <leader>cpc <cmd>CopilotChatClose<cr>
+
+"map to set relative numbers
+nnoremap <leader>nr <cmd>set relativenumber<cr>
+nnoremap <leader>nn <cmd>set norelativenumber<cr>
