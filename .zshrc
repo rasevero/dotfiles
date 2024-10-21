@@ -8,6 +8,8 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# do not ask for oh-my-zsh updates
+export DISABLE_UPDATE_PROMPT=true
 # Path to your oh-my-zsh installation.
 export ZSH="/home/ricardo/.oh-my-zsh"
 
@@ -176,6 +178,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+#fix history search with autosuggestions
 bindkey -a j vi-down-line-or-history
 bindkey -a k vi-up-line-or-history
 bindkey '^n' vi-down-line-or-history
