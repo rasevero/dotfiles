@@ -13,7 +13,7 @@
 riverctl keyboard-layout -variant abnt2 -options custom:caps_mod3,custom:hjkl_mod3_arrow br
 
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal Super Return spawn alacritty
+riverctl map normal Super Return spawn foot
 
 # Super+Q to close the focused view
 riverctl map normal Super C close
@@ -22,7 +22,7 @@ riverctl map normal Control+Alt L spawn 'swaylock -l -c 000000'
 
 riverctl map normal Super+Shift Q exit
 
-riverctl map normal Super D spawn 'wofi --show drun --gtk-dark --lines 5 --term alacritty'
+riverctl map normal Super D spawn 'wofi --show drun --gtk-dark --lines 5 --term foot'
 
 riverctl map normal None Print spawn "slurp | grim -g - - | swappy -f -"
 
