@@ -239,3 +239,6 @@ sleep 0.1
 riverctl focus-output DP-1
 
 ckb-next -b &
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+systemctl --user restart xdg-desktop-portal
