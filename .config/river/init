@@ -33,6 +33,10 @@ riverctl map normal Super H focus-view left
 riverctl map normal Super L focus-view right
 riverctl map normal Super Tab focus-view next
 
+#blink focused window
+riverctl map normal Super b spawn '~/.config/river/blink_focused_border.sh'
+
+
 # Super+Shift+J and Super+Shift+K to swap the focused view with the next/previous
 # view in the layout stack
 riverctl map normal Super+Shift J swap next
@@ -207,6 +211,11 @@ riverctl rule-add -app-id "slack" tags $(((1<<3)|(1<<8)))
 # River will send the process group of the init executable SIGTERM on exit.
 #riverctl default-layout rivertile
 #rivertile -view-padding 3 -outer-padding 3 -main-location left -main-count 2 -main-ratio 0.5 &
+
+#configure screen sharing
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+systemctl --user restart xdg-desktop-portal
 
 # Set the default layout generator to be wideriver and start it.
 riverctl default-layout wideriver
