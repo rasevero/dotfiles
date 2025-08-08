@@ -27,11 +27,16 @@ riverctl map normal Super D spawn 'wofi --show drun --gtk-dark --lines 5 --term 
 riverctl map normal None Print spawn "slurp | grim -g - - | swappy -f -"
 
 # Super+J and Super+K to focus the next/previous view in the layout stack
-riverctl map normal Super J focus-view down
-riverctl map normal Super K focus-view up
-riverctl map normal Super H focus-view left
-riverctl map normal Super L focus-view right
-riverctl map normal Super Tab focus-view next
+riverctl map normal Super J spawn "riverctl focus-view down && .config/river/blink_focused_border.sh"
+#riverctl map normal Super J focus-view down
+riverctl map normal Super K spawn "riverctl focus-view up && .config/river/blink_focused_border.sh"
+#riverctl map normal Super K focus-view up
+riverctl map normal Super H spawn "riverctl focus-view left && .config/river/blink_focused_border.sh"
+#riverctl map normal Super H focus-view left
+riverctl map normal Super L spawn "riverctl focus-view right && .config/river/blink_focused_border.sh"
+#riverctl map normal Super L focus-view right
+riverctl map normal Super Tab spawn "riverctl focus-view next && .config/river/blink_focused_border.sh"
+#riverctl map normal Super Tab focus-view next
 
 #blink focused window
 riverctl map normal Super b spawn '~/.config/river/blink_focused_border.sh'
