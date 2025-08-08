@@ -104,7 +104,7 @@ endif " has("autocmd")
 
 set shiftwidth=4
 set tabstop=4
-set textwidth=78
+set textwidth=0
 set expandtab
 set number
 set guioptions-=T
