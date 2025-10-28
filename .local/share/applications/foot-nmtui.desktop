@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Nmtui (foot)
+GenericName=Network management TUI
+Comment=Network management TUI
+Exec=/usr/sbin/foot -a float-foot nmtui
+Terminal=false
+StartupWMClass=float-foot
+Categories=Network;
+Type=Application

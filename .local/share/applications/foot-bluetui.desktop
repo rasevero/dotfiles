@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Bluetui (foot)
+GenericName=Bluetooth management TUI
+Comment=Bluetooth management TUI
+Exec=/usr/sbin/foot -a float-foot bluetui
+Terminal=false
+StartupWMClass=float-foot
+Categories=Network;
+Type=Application
