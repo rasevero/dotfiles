@@ -3,13 +3,13 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCM
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'tjdevries/colorbuddy.nvim'
 Plug 'svrana/neosolarized.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
-" lsp-zero ------
+" lsp ------
 " LSP Support
 Plug 'neovim/nvim-lspconfig'             " Required
 Plug 'williamboman/mason.nvim'           " Optional
@@ -26,11 +26,9 @@ Plug 'hrsh7th/cmp-nvim-lua'     " Optional
 "  Snippets
 Plug 'L3MON4D3/LuaSnip'             " Required
 Plug 'rafamadriz/friendly-snippets' " Optional
+" lsp ------
 
-Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v1.x'}
-" lsp-zero ------
-
-Plug 'simrat39/rust-tools.nvim'
+"Plug 'simrat39/rust-tools.nvim'
 
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
@@ -159,6 +157,7 @@ nnoremap <silent> <C-C> :!cd /; find /linuxppc/SELF/build/application/{PD2300/,L
 "set background=dark
 set termguicolors
 "colorscheme solarized8
+colorscheme neosolarized
 
 "Get the 2-space YAML as the default when hit carriage return after the colon
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -283,7 +282,12 @@ EOF
 lua << EOF
 require("mason").setup()
 require("mason-lspconfig").setup{
-    ensure_installed = { "tsserver", "phpactor" },
+    ensure_installed = { "ts_ls", "phpactor" },
+    automatic_enable = {
+        exclude = {
+            "rust_analyzer", -- duplicated by mason.setup
+        },
+    },
 }
 EOF
 
@@ -346,23 +350,9 @@ require'lspconfig'.phpactor.setup{
 --]]
 EOF
 
-"lsp-zero config
 set completeopt=menu,menuone,noselect
+
 lua << EOF
-local lsp = require('lsp-zero').preset({
-  name = 'minimal',
-  set_lsp_keymaps = true,
-  manage_nvim_cmp = false,
-  suggest_lsp_servers = false,
-})
-
--- (Optional) Configure lua language server for neovim
-lsp.nvim_workspace()
-
-lsp.skip_server_setup({'rust-analyzer'})
-
-lsp.setup()
-
 local cmp = require('cmp')
 cmp.setup({
     sources = {
@@ -413,19 +403,20 @@ endfunction
 
 nnoremap <leader>rn :call NumberToggle()<CR>
 
+"rust-tools
 lua << EOF
-local rt = require("rust-tools")
+-- local rt = require("rust-tools")
 
-rt.setup({
-  server = {
-    on_attach = function(_, bufnr)
+-- rt.setup({
+--  server = {
+--    on_attach = function(_, bufnr)
       -- Hover actions
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+--      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
       -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
-})
+--      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+--    end,
+--  },
+--})
 EOF
 
 lua << EOF
