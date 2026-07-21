@@ -91,6 +91,7 @@
     # disk_usage            # disk usage
     # ram                   # free RAM
     # swap                  # used swap
+    bwrap_sandbox
     todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
     timewarrior             # timewarrior tracking status (https://timewarrior.net/)
     taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
@@ -1500,3 +1501,8 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
+
+prompt_bwrap_sandbox() {
+  [[ -n ${BWRAP_SANDBOX:-} ]] || return
+  p10k segment -f 208 -i '' -t 'BWRAP'
+}
