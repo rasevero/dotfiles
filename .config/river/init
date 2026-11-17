@@ -12,8 +12,10 @@
 
 riverctl keyboard-layout -variant abnt2 -options custom:caps_mod3,custom:hjkl_mod3_arrow br
 
-# Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal Super Return spawn foot
+# Super+Shift+Return to start an instance of ghostty
+riverctl map normal Super Return spawn ghostty
+# Make ghostty window decoration server side (adds border)
+riverctl rule-add -app-id 'com.mitchellh.ghostty' ssd
 
 # Super+Q to close the focused view
 riverctl map normal Super C close
@@ -22,7 +24,7 @@ riverctl map normal Control+Alt L spawn 'swaylock -l -c 000000'
 
 riverctl map normal Super+Shift Q exit
 
-riverctl map normal Super D spawn 'wofi --show drun --gtk-dark --lines 5 --term foot'
+riverctl map normal Super D spawn 'wofi --show drun --gtk-dark --lines 5 --term ghostty'
 
 riverctl map normal None Print spawn "slurp | grim -g - - | swappy -f -"
 
@@ -106,13 +108,13 @@ do
     tags=$((1 << ($i - 1)))
 
     # Super+[1-9] to focus tag [0-8]
-    riverctl map normal Super $i set-focused-tags $tags
+    riverctl map normal Super $i spawn "riverctl set-focused-tags $tags && ~/.config/river/blink_focused_border.sh"
 
     # Super+Shift+[1-9] to tag focused view with tag [0-8]
     riverctl map normal Super+Shift $i set-view-tags $tags
 
     # Super+Control+[1-9] to toggle focus of tag [0-8]
-    riverctl map normal Super+Control $i toggle-focused-tags $tags
+    riverctl map normal Super+Control $i spawn "riverctl toggle-focused-tags $tags && ~/.config/river/blink_focused_border.sh"
 
     # Super+Shift+Control+[1-9] to toggle tag [0-8] of focused view
     riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
@@ -121,10 +123,10 @@ done
 # Super+0 to focus all tags
 # Super+Shift+0 to tag focused view with all tags
 all_tags=$(((1 << 32) - 1))
-riverctl map normal Super - set-focused-tags $all_tags
+riverctl map normal Super - spawn "riverctl set-focused-tags $all_tags && ~/.config/river/blink_focused_border.sh"
 riverctl map normal Super+Shift - set-view-tags $all_tags
 
-riverctl map normal Alt Tab focus-previous-tags
+riverctl map normal Alt Tab spawn "riverctl focus-previous-tags && ~/.config/river/blink_focused_border.sh"
 
 # Super+Space to toggle float
 riverctl map normal Super V toggle-float
@@ -249,8 +251,13 @@ riverctl map normal Super T send-layout-cmd wideriver "--layout-toggle"
 
 waybar &
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+systemctl --user restart ssh-agent
 dunst &
-swaybg -i Imagens/wallpapers/green-nature-26.jpg &
+#swaybg -i Imagens/wallpapers/green-nature-26.jpg &
+swaybg -i Imagens/eu_S2_meus_devs_moebius_clean.png &
+
+#aumentar scale no zenbook
+wlr-randr --output eDP-1 --scale 1.7
 
 # set hdmi to the left
 wlr-randr --output HDMI-A-1 --pos '-3840,-800'
