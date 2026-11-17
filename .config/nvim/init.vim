@@ -1,6 +1,6 @@
 call plug#begin()
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': 'main'}
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -38,8 +38,6 @@ Plug 'vim-test/vim-test'
 Plug 'dense-analysis/ale'
 
 Plug 'wellle/targets.vim'
-
-Plug 'CopilotC-Nvim/CopilotChat.nvim'
 call plug#end()
 
 " Use Vim settings, rather then Vi settings (much better!).
@@ -231,7 +229,7 @@ vim.api.nvim_set_keymap( 'n', '<leader>fG', '<cmd>lua require(\'telescope.builti
 EOF
 
 lua << EOF
-require'nvim-treesitter.configs'.setup {
+require'nvim-treesitter.config'.setup {
   -- A list of parser names, or "all" (the four listed parsers should always be installed)
   ensure_installed = { "javascript", "vue", "terraform", "php", "lua", "vim", "dockerfile" },
 
@@ -479,43 +477,6 @@ let g:ale_fix_on_save = 1
 
 "clear search highlight until next search with C-L
 nnoremap <nowait><silent> <C-H> :noh<CR>
-
-"copilot remaps
-imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
-imap <C-L> <Plug>(copilot-accept-word)
-let g:copilot_filetypes = {
-            \ 'markdown': v:false,
-            \ 'text': v:false,
-            \ }
-
-"copilot chat
-lua << EOF
-local copilot_chat = require("CopilotChat")
-copilot_chat.setup({
-  debug = true,
-  show_help = "yes",
-  prompts = {
-    Explain = "Explain how it works.",
-    Review = "Review the following code and provide concise suggestions.",
-    Tests = "Briefly explain how the selected code works, then generate unit tests.",
-    Refactor = "Refactor the code to improve clarity and readability.",
-  },
-  build = function()
-    vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
-  end,
-  event = "VeryLazy",
-})
-
-EOF
-
-nnoremap <leader>ccb <cmd>CopilotChatBuffer<cr>
-nnoremap <leader>cce <cmd>CopilotChatExplain<cr>
-nnoremap <leader>cct <cmd>CopilotChatTests<cr>
-xnoremap <leader>ccv :CopilotChatVisual<cr>
-xnoremap <leader>ccx :CopilotChatInPlace<cr>
-nnoremap <leader>cpo <cmd>CopilotChatOpen<cr>
-nnoremap <leader>cpc <cmd>CopilotChatClose<cr>
 
 "map to set relative numbers
 nnoremap <leader>nr <cmd>set relativenumber<cr>
