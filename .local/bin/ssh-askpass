@@ -1,0 +1,12 @@
+#!/bin/sh
+# ssh-askpass usando wofi; $1 = texto do prompt enviado pelo ssh
+opts="--dmenu --gtk-dark --cache-file /dev/null --prompt"
+
+if [ "$SSH_ASKPASS_PROMPT" = confirm ]; then
+    # Confirmação do ssh-add -c: status 0 aceita, diferente de 0 recusa
+    choice=$(printf 'não\nsim' | wofi $opts "$1" --lines 3)
+    [ "$choice" = sim ]
+else
+    # Pedido de passphrase: imprime o que foi digitado
+    exec wofi $opts "$1" --password --lines 1 </dev/null
+fi

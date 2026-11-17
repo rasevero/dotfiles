@@ -161,9 +161,8 @@ bindkey -s '^[[26~' '\a'
 zstyle ':completion:*' file-sort modification
 
 #FZF
+source <(fzf --zsh)
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
-
-source ~/.zsh/nnn/quitcd.bash_sh_zsh
 
 eval "$(zoxide init zsh)"
 
@@ -183,3 +182,8 @@ bindkey -a j vi-down-line-or-history
 bindkey -a k vi-up-line-or-history
 bindkey '^n' vi-down-line-or-history
 bindkey '^p' vi-up-line-or-history
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+ASK_BASH=~/.local/share/ask-claude/ask.bash
+[[ -f $ASK_BASH ]] && source $ASK_BASH
