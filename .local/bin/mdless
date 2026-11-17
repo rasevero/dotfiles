@@ -1,0 +1,3 @@
+#!/bin/bash
+
+FORCE_COLOR=1 COLUMNS=$COLUMNS python -m rich.markdown "$1" | less -R
